@@ -4,6 +4,7 @@ export class Friend {
     lastname: string;
     email: string; 
     phoneNumber: string;
+    preferredLanguage: string;
     discordID: string;
     socialMediaLink: string;
     description: string;
@@ -19,6 +20,7 @@ export class Friend {
         lastname: string, 
         email: string, 
         phoneNumber: string,
+        preferredLanguage: string,
         discordID: string,
         socialMediaLink: string,
         description: string,
@@ -34,6 +36,7 @@ export class Friend {
         this.lastname = lastname;
         this.email = email;
         this.phoneNumber  = phoneNumber;
+        this.preferredLanguage = preferredLanguage;
         this.discordID = discordID;
         this.socialMediaLink = socialMediaLink;
         this.description = description;
@@ -44,3 +47,4 @@ export class Friend {
         this.talent = talent;
         this.languages = languages;
     }
+}

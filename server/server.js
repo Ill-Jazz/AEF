@@ -2,7 +2,7 @@ const express = require('express'); //JS backend server
 const bodyParser = require('body-parser'); //understands http data
 const app = express(); 
 
-const PORT = 6969;
+const PORT = 9000;
 
 //boilerplate
 app.use(bodyParser.json());
@@ -28,8 +28,16 @@ app.get('/', function (request, response) {
     response.send('Hello from server');
 });
 
+app.get('/allFriends', function (request, response) {
+    response.send(allFriends);
+});
+
 app.post('/', function (request, response) {
     response.status(200).send({"message": "Data received"});
+});
+
+app.post('/allFriends', function (request, response) {
+    allFriends.push(request.body);
 });
 
 //200 = http code for all good xd
