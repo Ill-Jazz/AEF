@@ -1,0 +1,78 @@
+<p>friend-form works!</p>
+<div><<a routerLink="/home">go back home</a></div>
+   
+<section>
+    <form #formName="ngForm" formName.form.invalid (ngSubmit)="sendFriendData()">
+      <h3>Personal Info:</h3>
+      <label for="input-first-name">First name:</label>
+      <br>
+      <input required pattern="^[a-zA-Z0-9 ]*$" type="text" [(ngModel)]="friendModel.firstname" #firstName="ngModel" name="input-first-name" [class.error]="firstName.invalid && firstName.touched">
+      <br>
+      <label for="input-last-name">Last name:</label>
+      <br>
+      <input required pattern="^[a-zA-Z0-9 ]*$" type="text" [(ngModel)]="friendModel.lastname" ngModel #lastName="ngModel" name="input-last-name" [class.error]="lastName.invalid && lastName.touched">
+      <br>
+      <label for="input-email">E-mail address:</label>
+      <br>
+      <input required pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$" type="text" [(ngModel)]="friendModel.email" #email="ngModel" name="input-email" [class.error]="email.invalid && email.touched">
+      <br>
+      <label for="input-phone-number">Phone number (optional):</label>
+      <br>
+      <input type="tel" pattern="^\d+$" [(ngModel)]="friendModel.phoneNumber" #phoneNumber="ngModel" name="input-phone-number" [class.error]="phoneNumber.invalid">
+      <br>
+      <label for="input-preferred-language">Preferred programming language (optional):</label>
+      <br>
+      <select type="text" [(ngModel)]="friendModel.preferredLanguage" #preferredLanguage="ngModel" name="input-preferred-language">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="Javascript">Javascript</option>
+        <option value="PHP">PHP</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="C#">C#</option>
+        <option value="Ruby">Ruby</option>
+      </select>
+      <br>
+      <label for="input-discord-id">Discord ID (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.discordID" #discordID="ngModel" name="input-discord-id">
+      <br>
+      <label for="input-social-media-link">Link to social media <br> (Facebook, Instagram...)(optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.socialMediaLink" #socialMediaLink="ngModel" name="input-social-media-link">
+      <br>
+      <label for="input-description">Tell something about yourself:</label>
+      <br>
+      <input required type="text" [(ngModel)]="friendModel.description" #description="ngModel" name="input-description" [class.error]="description.invalid && description.touched">
+  
+      <h3>Some fun facts:</h3>
+      <label for="input-zodiac-sign">Zodiac sign (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.zodiacSign" #zodiacSign="ngModel" name="input-zodiac-sign">
+      <br>
+      <label for="input-lucky-number">Lucky number (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.luckyNumber" #luckyNumber="ngModel" name="input-lucky-number">
+      <br>
+      <label for="input-greatest-achievement">Greatest achievement (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.greatestAchievement" #greatestAchievement="ngModel" name="input-greatest-achievement">
+      <br>
+      <label for="input-favourite-food">Favourite food (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.favouriteFood" #favouriteFood="ngModel" name="input-favourite-food">
+      <br>
+      <label for="input-talent">Talent (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.talent" #talent="ngModel" name="input-talent">
+      <br>
+      <label for="input-languages">Languages you speak (optional):</label>
+      <br>
+      <input type="text" [(ngModel)]="friendModel.languages" #languages="ngModel" name="input-languages"> 
+      <br>
+      <button [disabled]="formName.invalid">Click here to send your data!</button>
+    </form>
+  </section>
+  
