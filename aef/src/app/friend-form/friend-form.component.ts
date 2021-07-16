@@ -9,16 +9,20 @@ import { AddFriendService } from '../add-friend.service';
 })
 export class FriendFormComponent implements OnInit {
 
+
+
   friendModel = new Friend('', '', '', '', '', '', '', '', '', '', '', '', '', '');
   allFriends: any;
 
+
+
   sendFriendData(){
-    console.log(this.friendModel);
     this.addFriendService.addFriend(this.friendModel).subscribe(friend => alert('Your data was added. Nice getting to know you'), error => alert("it didn't work"));  
     this.getData('http://localhost:9000/allFriends');
     //document.querySelector('form').reset;
-  }
+    }
 
+ 
   constructor(private addFriendService: AddFriendService){}
 
   public async getData(url: string): Promise <any>{
@@ -28,7 +32,15 @@ export class FriendFormComponent implements OnInit {
     }).then(response => {
       return response.json()
     }).then(data => this.allFriends = data);
+    this.showMostRecentFriends();
     return;
+  }
+
+  showMostRecentFriends(){
+    document.getElementById('latestFriend')!.innerHTML = '';
+    for(let i = 1; i <= 3; i++){
+      document.getElementById('latestFriend')!.innerHTML += (this.allFriends[this.allFriends.length-i].firstname + ' ' + this.allFriends[this.allFriends.length-i].lastname + '<br>');
+    } 
   }
 
   ngOnInit(): any {

@@ -1,8 +1,8 @@
 <p>friend-form works!</p>
-<div><<a routerLink="/home">go back home</a></div>
-   
+
 <section>
-    <form #formName="ngForm" formName.form.invalid (ngSubmit)="sendFriendData()">
+    <form class="form col-lg-12 d-flex justify-content-center" #formName="ngForm" formName.form.invalid (ngSubmit)="sendFriendData()">
+    <div>
       <h3>Personal Info:</h3>
       <label for="input-first-name">First name:</label>
       <br>
@@ -22,7 +22,7 @@
       <br>
       <label for="input-preferred-language">Preferred programming language (optional):</label>
       <br>
-      <select type="text" [(ngModel)]="friendModel.preferredLanguage" #preferredLanguage="ngModel" name="input-preferred-language">
+      <select class="form-select" type="text" [(ngModel)]="friendModel.preferredLanguage" #preferredLanguage="ngModel" name="input-preferred-language">
         <option value="HTML">HTML</option>
         <option value="CSS">CSS</option>
         <option value="Javascript">Javascript</option>
@@ -46,7 +46,8 @@
       <label for="input-description">Tell something about yourself:</label>
       <br>
       <input required type="text" [(ngModel)]="friendModel.description" #description="ngModel" name="input-description" [class.error]="description.invalid && description.touched">
-  
+    </div>
+    <div>
       <h3>Some fun facts:</h3>
       <label for="input-zodiac-sign">Zodiac sign (optional):</label>
       <br>
@@ -73,6 +74,8 @@
       <input type="text" [(ngModel)]="friendModel.languages" #languages="ngModel" name="input-languages"> 
       <br>
       <button [disabled]="formName.invalid">Click here to send your data!</button>
+    </div>
     </form>
   </section>
+  <div id="latestFriend"></div>
   
