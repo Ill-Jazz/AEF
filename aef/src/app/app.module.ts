@@ -9,11 +9,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FriendFormComponent } from './friend-form/friend-form.component';
 import { AllFriendsComponent } from './all-friends/all-friends.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'form', component: FriendFormComponent},
-  {path: 'friends', component: AllFriendsComponent}
+  {path: 'friends', component: AllFriendsComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
@@ -21,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     FriendFormComponent,
-    AllFriendsComponent
+    AllFriendsComponent,
+    ProfileComponent
   ],
   imports: [
     [RouterModule.forRoot(routes)],

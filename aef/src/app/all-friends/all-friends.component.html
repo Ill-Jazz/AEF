@@ -1,10 +1,8 @@
-<p>all-friends works!</p>
-<div><a routerLink="/home">go back home</a></div>
 <section class="container">
-  <h1>All your friends</h1>
+  <h1 class="titel">All your friends</h1>
   <div class="row">
-    <div class="col-sm4" *ngFor="let friend of allFriends">
-      <div class="card">
+    <div class="col-lg-4 mb-4" *ngFor="let friend of allFriends">
+      <div class="card col-lg-">
         <div class="card-body">
           <h5 class="card-title"> {{friend.firstname}} {{friend.lastname}}</h5>
           </div>
@@ -13,6 +11,7 @@
           <li class="list-group-item">Zodiac Sign: {{friend.zodiacSign}}</li>
           <li class="list-group-item">Description: {{friend.description}}</li>
           <li class="list-group-item">Preferred Language: {{friend.preferredLanguage}}</li>
+          <button class="btn btn-primary"><a routerLink='/profile'>View Profile</a></button>
         </ul>
       </div>
     </div>
